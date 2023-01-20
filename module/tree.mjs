@@ -195,6 +195,15 @@ class Tree {
         }
         return true
     }
+
+    rebalance = () => {
+        // get all value
+        const treeValues = this.levelOrder((item)=>item.value)
+        // sort
+        const sortedTreeValues = treeValues.sort((a,b)=>a-b)
+        // reassign newly built tree
+        this.root = Tree.buildTree(sortedTreeValues)
+    }
 }
 
 export { Tree }

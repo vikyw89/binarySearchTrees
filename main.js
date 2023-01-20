@@ -2,8 +2,10 @@ import { prettyPrint } from "./module/prettyPrint.mjs"
 import { Tree } from "./module/tree.mjs"
 
 const myTree = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324])
-// myTree.insert(5)
+myTree.insert(5)
+myTree.insert(5)
 // myTree.delete(7)
+myTree.rebalance()
 prettyPrint(myTree.root)
 // console.log(myTree.find(5))
 // function introduction (a) {
@@ -16,4 +18,4 @@ prettyPrint(myTree.root)
 // console.log(myTree.postorder(introduction))
 // console.log(myTree.height(myTree.find(8)))
 // console.log(myTree.depth(myTree.find(8)))
-console.log(myTree.isBalanced())
+// console.log(myTree.isBalanced())
