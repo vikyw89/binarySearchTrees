@@ -13,4 +13,5 @@ function introduction (a) {
 // console.log(myTree.levelOrder(introduction))
 // console.log(myTree.inorder(introduction))
 // console.log(myTree.preorder(introduction))
-console.log(myTree.postorder(introduction))
+// console.log(myTree.postorder(introduction))
+// console.log(myTree.height())

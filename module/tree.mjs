@@ -111,7 +111,7 @@ class Tree {
     postorder = (fn) => {
         return this.#postorder(this.root,fn)
     }
-    
+
     #inorder = (root, fn) => {
         let result = []
         // base case
@@ -149,6 +149,23 @@ class Tree {
         result.push(fn(root))
         root.left && result.push(...this.#postorder(root.left, fn))
         return result
+    }
+
+    height = () => {
+       return this.#height(this.root, 0)
+    }
+
+    #height = (root, maxDepth) => {
+        // base case
+        if (!root) {
+            return maxDepth
+        }
+        maxDepth++
+        // recursive case
+        let leftMaxDepth = root.left ? this.#height(root.left, maxDepth) : maxDepth
+        let rightMaxDepth = root.right ? this.#height(root.right, maxDepth) : maxDepth
+        return leftMaxDepth > rightMaxDepth ? leftMaxDepth : rightMaxDepth
+
     }
 }
 
