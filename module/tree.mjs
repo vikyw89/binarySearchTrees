@@ -151,21 +151,38 @@ class Tree {
         return result
     }
 
-    height = () => {
-       return this.#height(this.root, 0)
+    height = (node) => {
+       return this.#height(node, 0) - 1
     }
 
-    #height = (root, maxDepth) => {
+    #height = (root, maxHeight) => {
         // base case
         if (!root) {
-            return maxDepth
+            return maxHeight
         }
-        maxDepth++
+        maxHeight++
         // recursive case
-        let leftMaxDepth = root.left ? this.#height(root.left, maxDepth) : maxDepth
-        let rightMaxDepth = root.right ? this.#height(root.right, maxDepth) : maxDepth
-        return leftMaxDepth > rightMaxDepth ? leftMaxDepth : rightMaxDepth
+        let leftMaxHeight = this.#height(root.left, maxHeight)
+        let rightMaxHeight = this.#height(root.right, maxHeight)
+        return leftMaxHeight > rightMaxHeight ? leftMaxHeight : rightMaxHeight
+    }
 
+    depth = (node) => {
+        return this.#depth(this.root, node, 0)
+    }
+
+    #depth = (root, node, maxDepth) => {
+        // base case
+        if (root === node) {
+            return maxDepth
+        } else if (!root) {
+            return 0
+        }
+        // recursive case
+        maxDepth++
+        let leftMaxDepth = this.#depth(root.left, node, maxDepth)
+        let rightMaxDepth = this.#depth(root.right, node, maxDepth)
+        return leftMaxDepth > rightMaxDepth ? leftMaxDepth : rightMaxDepth
     }
 }
 
