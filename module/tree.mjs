@@ -85,8 +85,9 @@ class Tree {
         let pointer = this.root
         let breadthFirstLevel = []
         let queue = []
-        // base case
-        // recursive case
+        if (!pointer) {
+            return []
+        }
         breadthFirstLevel.push(fn(pointer))
         pointer.left && queue.push(pointer.left)
         pointer.right && queue.push(pointer.right)
@@ -97,6 +98,57 @@ class Tree {
             pointer.right && queue.push(pointer.right)
         }
         return breadthFirstLevel
+    }
+
+    inorder = (fn) => {
+        return this.#inorder(this.root, fn)
+    }
+
+    preorder = (fn) => {
+        return this.#preorder(this.root, fn)
+    }
+
+    postorder = (fn) => {
+        return this.#postorder(this.root,fn)
+    }
+    
+    #inorder = (root, fn) => {
+        let result = []
+        // base case
+        if (!root) {
+            return
+        }
+        // recursive case node, left, right
+        result.push(fn(root))
+        root.left && result.push(...this.#inorder(root.left, fn))
+        root.right && result.push(...this.#inorder(root.right, fn))
+        return result
+    }
+
+    #preorder = (root, fn) => {
+        let result = []
+        // base case
+        if (!root) {
+            return
+        }
+        // recursive case node, left, right
+        root.left && result.push(...this.#preorder(root.left, fn))
+        result.push(fn(root))
+        root.right && result.push(...this.#preorder(root.right, fn))
+        return result
+    }
+
+    #postorder = (root, fn) => {
+        let result = []
+        // base case
+        if (!root) {
+            return
+        }
+        // recursive case right, node, left
+        root.right && result.push(...this.#postorder(root.right, fn))
+        result.push(fn(root))
+        root.left && result.push(...this.#postorder(root.left, fn))
+        return result
     }
 }
 
