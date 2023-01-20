@@ -184,6 +184,17 @@ class Tree {
         let rightMaxDepth = this.#depth(root.right, node, maxDepth)
         return leftMaxDepth > rightMaxDepth ? leftMaxDepth : rightMaxDepth
     }
+
+    isBalanced = () => {
+        const nodesHeight = this.levelOrder(this.height)
+        // if height difference is more than 1, return false
+        for (let i = 0; i < nodesHeight.length - 1; i++){
+            if (Math.abs(nodesHeight[i] - nodesHeight[i+1]) > 1){
+                return false
+            }
+        }
+        return true
+    }
 }
 
 export { Tree }
