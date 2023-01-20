@@ -1,5 +1,10 @@
 # binarySearchTrees
 
+to run use following in bash CLI : 
+```
+npm run watch
+```
+
 <ol>
       <li>
         <p>Build a <code>Node</code> class / factory.  It should have an attribute for the data it stores as well as its left and right children.</p>
@@ -9,9 +14,7 @@
       </li>
       <li>
         <p>Write a <code>buildTree</code> function which takes an array of data (e.g. [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]) and turns it into a balanced binary tree full of <code>Node</code> objects appropriately placed (don’t forget to sort and remove duplicates!). The <code>buildTree</code> function should return the level-0 root node.</p>
-
         <p><strong>Tip:</strong> If you would like to visualize your binary search tree, here is a <code>prettyPrint()</code> function that will <code>console.log</code> your tree in a structured format. This function will expect to receive the root of your tree as the value for the <code>node</code> parameter.</p>
-
         <pre class="line-numbers language-javascript" tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> prettyPrint <span class="token operator">=</span> <span class="token punctuation">(</span>node<span class="token punctuation">,</span> prefix <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> isLeft <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token punctuation">.</span>right <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">prettyPrint</span><span class="token punctuation">(</span>node<span class="token punctuation">.</span>right<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>prefix<span class="token interpolation-punctuation punctuation">}</span></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>isLeft <span class="token operator">?</span> <span class="token string">'│   '</span> <span class="token operator">:</span> <span class="token string">'    '</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
