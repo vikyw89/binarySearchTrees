@@ -4,6 +4,7 @@ class Tree {
     constructor (array){
         this.root = Tree.buildTree(array.sort((a,b)=>a-b))
     }
+
     static buildTree = (arr) => {
         if (arr.length === 0) {
             return null;
